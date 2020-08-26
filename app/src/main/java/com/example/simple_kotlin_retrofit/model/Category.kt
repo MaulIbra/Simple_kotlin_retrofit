@@ -1,4 +1,4 @@
-package com.example.simple_kotlin_retrofit.product
+package com.example.simple_kotlin_retrofit.model
 
 /**
  * Created by Maulana Ibrahim on 22/August/2020

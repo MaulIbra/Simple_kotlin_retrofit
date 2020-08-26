@@ -1,5 +1,7 @@
-package com.example.simple_kotlin_retrofit.product
+package com.example.simple_kotlin_retrofit.api
 
+import com.example.simple_kotlin_retrofit.model.Product
+import com.example.simple_kotlin_retrofit.model.Wrapper
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET

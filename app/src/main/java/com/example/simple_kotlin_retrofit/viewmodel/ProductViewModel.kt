@@ -1,22 +1,17 @@
-package com.example.simple_kotlin_retrofit.product
+package com.example.simple_kotlin_retrofit.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.simple_kotlin_retrofit.config.RetrofitBuilder
+import com.example.simple_kotlin_retrofit.model.Product
+import com.example.simple_kotlin_retrofit.repository.ProductRepository
+import javax.inject.Inject
 
 /**
  * Created by Maulana Ibrahim on 22/August/2020
  * Email maulibrahim19@gmail.com
  */
 
-class ProductViewModel : ViewModel(){
-
-    private val productRepository:ProductRepository
-
-    init {
-        val productAPI = RetrofitBuilder.createRetrofit().create(ProductAPI::class.java)
-        productRepository = ProductRepository(productAPI)
-    }
+class ProductViewModel @Inject constructor(private val productRepository: ProductRepository) : ViewModel(){
 
     val product:LiveData<Product> = productRepository.product
 

@@ -1,5 +1,6 @@
-package com.example.simple_kotlin_retrofit.product
+package com.example.simple_kotlin_retrofit.model
 
+import com.example.simple_kotlin_retrofit.model.Category
 import com.google.gson.annotations.SerializedName
 
 /**
