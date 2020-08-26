@@ -10,7 +10,7 @@ import dagger.Component
  * Email maulibrahim19@gmail.com
  */
 
-@Component
+@Component(modules = [NetworkModule::class])
 interface ApplicationComponent {
     fun inject(mainActivity: MainActivity)
     fun inject(createProductFragment: CreateProductFragment)

@@ -14,35 +14,35 @@ import javax.inject.Inject
  * Created by Maulana Ibrahim on 22/August/2020
  * Email maulibrahim19@gmail.com
  */
-class ProductRepository @Inject constructor() {
+class ProductRepository @Inject constructor(private val productAPI: ProductAPI) {
 
     val product: MutableLiveData<Product> = MutableLiveData()
 
     fun getProduct(id: String) {
-//        productAPI.getMenuById(id).enqueue(object : Callback<Wrapper> {
-//            override fun onFailure(call: Call<Wrapper>, t: Throwable) {
-//                println(t.localizedMessage)
-//            }
-//
-//            override fun onResponse(call: Call<Wrapper>, response: Response<Wrapper>) {
-//                val responseProduct = response.body()
-//                val res = responseProduct?.data
-//                val gson = Gson()
-//                product.value = gson.fromJson(gson.toJson(res),
-//                    Product::class.java)
-//            }
-//        })
+        productAPI.getMenuById(id).enqueue(object : Callback<Wrapper> {
+            override fun onFailure(call: Call<Wrapper>, t: Throwable) {
+                println(t.localizedMessage)
+            }
+
+            override fun onResponse(call: Call<Wrapper>, response: Response<Wrapper>) {
+                val responseProduct = response.body()
+                val res = responseProduct?.data
+                val gson = Gson()
+                product.value = gson.fromJson(gson.toJson(res),
+                    Product::class.java)
+            }
+        })
     }
 
     fun createProduct(product: Product){
-//        productAPI.createProduct(product).enqueue(object :Callback<Wrapper>{
-//            override fun onFailure(call: Call<Wrapper>, t: Throwable) {
-//                println(t.localizedMessage)
-//            }
-//            override fun onResponse(call: Call<Wrapper>, response: Response<Wrapper>) {
-//                println("SUCCESS POST : $response")
-//            }
-//        })
+        productAPI.createProduct(product).enqueue(object :Callback<Wrapper>{
+            override fun onFailure(call: Call<Wrapper>, t: Throwable) {
+                println(t.localizedMessage)
+            }
+            override fun onResponse(call: Call<Wrapper>, response: Response<Wrapper>) {
+                println("SUCCESS POST : $response")
+            }
+        })
     }
 
 }
